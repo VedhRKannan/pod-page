@@ -1,16 +1,22 @@
 // app/episodes/page.tsx
 import Image from "next/image";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const episodes = [
-  {
-    title: "Episode 1 — How Hard Could It Be to make people laugh?",
-    image: "/ep1.jpeg",
-    link: "https://drive.google.com/your-podcast-link-1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae risus vel augue dapibus interdum.",
-  },
-];
+    {
+      title: "Episode 1 — How Hard Could It Be to Make People Laugh?",
+      image: "/ep1.jpeg",
+      link: "https://drive.google.com/your-podcast-link-1",
+      description:
+        "In this episode, Charlie and Vedh sit down with Professor Sophie Scott to explore the science behind laughter: how our brains respond to humour, why laughter spreads so quickly, and what makes it so difficult to produce on cue. They look at how researchers study laughter in the lab, what different kinds of laughter can reveal about our relationships, and why some environments make us crack up more easily than others. Tune in to learn why laughter is so central to human connection and how tricky it can be to create it on purpose.",
+  
+      resources: {
+        externalLink: "https://www.ucl.ac.uk/brain-sciences/icn/research/research-groups/speech-communication"
+      }
+    },
+  ];
+  
 
 export default function EpisodesPage() {
   return (
@@ -25,29 +31,66 @@ export default function EpisodesPage() {
 
         <div className="episodes-grid">
   {episodes.map((ep) => (
-    <a
-      key={ep.title}
-      href={ep.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="episode-card"
-    >
-      <div className="episode-image-wrapper">
+    <div key={ep.title} className="episode-card">
+
+      {/* CLICKABLE IMAGE */}
+      <a
+        href={ep.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="episode-image-wrapper"
+      >
         <Image
           src={ep.image}
           alt={ep.title}
-          fill
-          sizes="350px"
+          width={300}
+          height={250}
           className="episode-image"
         />
-      </div>
+      </a>
 
       <p className="episode-caption">{ep.title}</p>
       <p className="episode-description">{ep.description}</p>
-      </a>
-          ))}
+
+      {/* RESOURCES SECTION */}
+      <div className="episode-resources">
+        <h3>Resources</h3>
+
+        <div className="resources-grid">
+          {/* External Link */}
+          {ep.resources?.externalLink && (
+            <a
+              href={ep.resources.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resource-link"
+            >
+              UCL Speech Communication Research Group →
+            </a>
+          )}
+
         </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+        <section className="credits">
+  <h2 className="credits-title">Credits</h2>
+
+  <div className="credits-list">
+    <p><strong>Hosts:</strong> Charlie & Vedh</p>
+    <p><strong>Editing:</strong> Vedh & Alenka</p>
+    <p><strong>Social Media:</strong> Jingyi</p>
+  </div>
+</section>
+
+
+
       </main>
+      <Footer />
     </div>
   );
+
+
 }
