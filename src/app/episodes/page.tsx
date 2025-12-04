@@ -7,7 +7,7 @@ const episodes = [
     {
       title: "Episode 1 — How Hard Could It Be to Make People Laugh?",
       image: "/ep1.jpeg",
-      link: "https://drive.google.com/your-podcast-link-1",
+      link: "/audio/ep1.wav",
       description:
         "In this episode, Charlie and Vedh sit down with Professor Sophie Scott to explore the science behind laughter: how our brains respond to humour, why laughter spreads so quickly, and what makes it so difficult to produce on cue. They look at how researchers study laughter in the lab, what different kinds of laughter can reveal about our relationships, and why some environments make us crack up more easily than others. Tune in to learn why laughter is so central to human connection and how tricky it can be to create it on purpose.",
   
