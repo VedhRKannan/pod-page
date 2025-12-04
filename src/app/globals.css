@@ -1,42 +1,301 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* app/globals.css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Page base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Bradley Hand ITC", "Bradley Hand", cursive;
+  background-color: #ffffff;
+  color: #222222;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Layout helpers */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-a {
-  color: inherit;
+/* HEADER */
+
+.header {
+  background-color: #0b2b3c; /* deep blue/teal */
+  color: #ffffff;
+  padding: 1.2rem 0;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Logo */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  object-fit: cover;
+}
+
+/* Right side of header */
+.header-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-block {
+  text-align: right;
+  font-family: "Times New Roman", Georgia, "Times", serif;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.6rem;
+}
+
+.title-line-small {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.title-line-large {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.1rem;
+}
+
+.nav-link {
   text-decoration: none;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* MAIN */
+
+.main {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Left text block */
+
+.content {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.content p {
+  margin: 0.2rem 0;
+}
+
+.tagline {
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+}
+
+/* Right doodles */
+
+.doodles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+/* Add a little sketchy feel */
+.doodle-item img {
+  display: block;
+}
+
+/* Placeholder sections */
+
+.placeholder-section {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.placeholder-section h2 {
+  font-family: "Times New Roman", Georgia, "Times", serif;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title-block {
+    text-align: center;
+  }
+
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    width: 100%;
   }
 }
+
+/* Episodes page layout */
+
+.episodes-main {
+  max-width: 1100px;
+  margin: 3rem auto 4rem;
+  padding: 0 2rem;
+}
+
+.episodes-title {
+  font-size: 2.4rem;
+  margin: 0 0 0.5rem;
+  font-family: "Times New Roman", Georgia, serif;
+  letter-spacing: 0.05em;
+}
+
+.episodes-subtitle {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+}
+
+/* Card grid */
+
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+
+.episode-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Bradley Hand ITC", "Bradley Hand", cursive;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Image wrapper for nice cropping */
+
+.episode-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 70%; /* aspect ratio ~ 10:7 */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.episode-image {
+  object-fit: cover;
+}
+
+.episode-caption {
+  margin-top: 0.9rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Small screen tweak */
+
+@media (max-width: 600px) {
+  .episodes-main {
+    padding: 0 1.2rem;
+  }
+
+  .episodes-title {
+    text-align: center;
+  }
+
+  .episodes-subtitle {
+    text-align: center;
+  }
+}
+/* Footer */
+
+.footer {
+  background-color: #0b2b3c; /* same deep navy/teal as header */
+  color: #ffffff;
+  padding: 3rem 0 2.2rem;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer-text {
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+}
+
+.footer-email a {
+  font-size: 1.15rem;
+  font-family: "Bradley Hand ITC", cursive;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+

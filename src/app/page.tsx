@@ -1,66 +1,83 @@
+// app/page.tsx
 import Image from "next/image";
-import styles from "./page.module.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+    <div className="page">
+      <Header />
+
+      {/* MAIN CONTENT */}
+      <main className="main">
+        <section id="about" className="content">
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            “How hard could it be?” is a student podcast produced by the Society
+            for Natural Sciences at UCL. We choose everyday things and ask a
+            seemingly simple but thought-provoking question: how hard could it
+            be to do that?
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+          <p>
+            In each episode, Charlie and Vedh work with scientists, engineers,
+            and experts from different disciplines to uncover the hidden
+            scientific principles behind familiar experiences – from making
+            people laugh, to designing clothes, to watching football matches as
+            a blind fan, to making up convincing lies. Along the way, we explore
+            the intersection of different scientific fields and how real
+            scientific research is closely related to everyday life.
+          </p>
+
+          <p>
+            This podcast is produced by students and is aimed at students. It is
+            light-hearted but never shallow; we go beyond the basic knowledge of
+            textbooks while keeping the content clear and easy to understand –
+            suitable for anyone in STEM-related fields. Whether you are a school
+            pupil, a university student, or just someone who loves science,
+            “How hard could it be?” offers a glimpse into the wonderful world of
+            natural sciences – and might even spark ideas for what you’d like to
+            study next.
+          </p>
+        </section>
+
+        <aside className="doodles">
+          <div className="doodle-item">
             <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/doodle-flask.jpeg"
+              alt="Flask doodle"
+              width={160}
+              height={160}
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+          <div className="doodle-item">
+            <Image
+              src="/doodle-light.jpeg"
+              alt="Test tubes doodle"
+              width={160}
+              height={160}
+            />
+          </div>
+          <div className="doodle-item">
+            <Image
+              src="/doodle-planet.jpeg"
+              alt="Microscope doodle"
+              width={160}
+              height={160}
+            />
+          </div>
+          <div className="doodle-item">
+            <Image
+              src="/doodle-plant.jpeg"
+              alt="Cell doodle"
+              width={160}
+              height={160}
+            />
+          </div>
+        </aside>
       </main>
+
+      {/* CONTACT FOOTER (includes #contact anchor inside the component) */}
+      <Footer />
     </div>
   );
 }
