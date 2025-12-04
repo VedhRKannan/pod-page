@@ -7,7 +7,7 @@ const episodes = [
     {
       title: "Episode 1 — How Hard Could It Be to Make People Laugh?",
       image: "/ep1.jpeg",
-      link: "/audio/ep1.wav",
+      audio: "/audio/ep1.wav",
       description:
         "In this episode, Charlie and Vedh sit down with Professor Sophie Scott to explore the science behind laughter: how our brains respond to humour, why laughter spreads so quickly, and what makes it so difficult to produce on cue. They look at how researchers study laughter in the lab, what different kinds of laughter can reveal about our relationships, and why some environments make us crack up more easily than others. Tune in to learn why laughter is so central to human connection and how tricky it can be to create it on purpose.",
   
@@ -25,29 +25,32 @@ export default function EpisodesPage() {
 
       <main className="episodes-main">
         <h1 className="episodes-title">Episodes</h1>
-        <p className="episodes-subtitle">
-          Click on an episode image to listen on Google Drive.
-        </p>
 
         <div className="episodes-grid">
   {episodes.map((ep) => (
     <div key={ep.title} className="episode-card">
 
-      {/* CLICKABLE IMAGE */}
-      <a
-        href={ep.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="episode-image-wrapper"
-      >
-        <Image
-          src={ep.image}
-          alt={ep.title}
-          width={300}
-          height={250}
-          className="episode-image"
-        />
-      </a>
+      {/* EPISODE IMAGE (not a link anymore) */}
+<div className="episode-image-wrapper">
+  <Image
+    src={ep.image}
+    alt={ep.title}
+    width={300}
+    height={300}   // make square
+    className="episode-image"
+  />
+</div>
+
+{/* EMBEDDED AUDIO PLAYER — streams directly, no download */}
+<audio
+  controls
+  preload="none"
+  className="episode-audio"
+  src={ep.audio}   // see below — ep.audio instead of ep.link
+>
+  Your browser does not support the audio element.
+</audio>
+
 
       <p className="episode-caption">{ep.title}</p>
       <p className="episode-description">{ep.description}</p>
