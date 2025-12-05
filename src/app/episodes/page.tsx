@@ -7,13 +7,16 @@ const episodes = [
     {
       title: "Episode 1 — How Hard Could It Be to Make People Laugh?",
       image: "/ep1.jpeg",
-      audio: "/audio/ep1.wav",
+      audio: "/audio/ep1.mp3",
       description:
         "In this episode, Charlie and Vedh sit down with Professor Sophie Scott to explore the science behind laughter: how our brains respond to humour, why laughter spreads so quickly, and what makes it so difficult to produce on cue. They look at how researchers study laughter in the lab, what different kinds of laughter can reveal about our relationships, and why some environments make us crack up more easily than others. Tune in to learn why laughter is so central to human connection and how tricky it can be to create it on purpose.",
   
       resources: {
         externalLink: "https://www.ucl.ac.uk/brain-sciences/icn/research/research-groups/speech-communication"
-      }
+      },
+      references: [
+        `Yim, J (2016). "Therapeutic Benefits of Laughter in Mental Health: A Theoretical Review." Tohoku J Exp Med. Jul;239(3):243–9. doi: 10.1620/tjem.239.243.`,
+      ],
     },
   ];
   
@@ -36,7 +39,7 @@ export default function EpisodesPage() {
     src={ep.image}
     alt={ep.title}
     width={300}
-    height={300}   // make square
+    height={300} 
     className="episode-image"
   />
 </div>
@@ -73,6 +76,17 @@ export default function EpisodesPage() {
           )}
 
         </div>
+        {/* REFERENCES SECTION */}
+{ep.references && ep.references.length > 0 && (
+  <div className="episode-references">
+    <h3>References</h3>
+    <ul>
+      {ep.references.map((ref, i) => (
+        <li key={i}>{ref}</li>
+      ))}
+    </ul>
+  </div>
+)}
       </div>
     </div>
   ))}
