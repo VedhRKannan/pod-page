@@ -391,3 +391,42 @@ body {
   letter-spacing: 0.06em;   /* optional: slight spacing for balance */
 }
 
+/* Transcript Section */
+
+.episode-transcript {
+  margin-top: 2.5rem;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Times New Roman", serif;
+}
+
+.episode-transcript h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.transcript-download a {
+  font-size: 1.05rem;
+  text-decoration: underline;
+  color: #003366;
+}
+
+.transcript-details {
+  margin-top: 1rem;
+}
+
+.transcript-details summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.transcript-text {
+  margin-top: 0.6rem;
+  line-height: 1.55;
+  font-size: 1rem;
+}
