@@ -146,6 +146,9 @@ export default function EpisodesPage() {
             <p>
               <strong>Social Media:</strong> Jingyi
             </p>
+            <p>
+              <strong>Pilot Guest:</strong> Prof. Sophie Scott
+            </p>
           </div>
         </section>
       </main>
